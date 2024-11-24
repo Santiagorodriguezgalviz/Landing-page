@@ -12,7 +12,7 @@ const { title, description = "Wilson Barbosa - El Hijo del Pueblo" } = Astro.pro
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 19V6l10-2v13m-10 0h10' /></svg>" type="image/svg+xml" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -26,7 +26,7 @@ const { title, description = "Wilson Barbosa - El Hijo del Pueblo" } = Astro.pro
           return localStorage.getItem('theme');
         }
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'light';
+          return 'dark';
         }
         return 'light';
       })();
