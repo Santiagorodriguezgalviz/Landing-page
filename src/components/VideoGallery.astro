@@ -1,0 +1,84 @@
+---
+const videos = [
+  {
+    id: 'CgYBCDEO9T8',
+    title: 'Wilson Barbosa - El Hijo del Pueblo',
+    description: 'Música que llega al corazón'
+  },
+  {
+    id: 'SEUpNdz8SXU',
+    title: 'Wilson Barbosa en Vivo',
+    description: 'Presentación especial'
+  }
+];
+---
+
+<section id="videos" class="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+  <div class="container mx-auto px-4">
+    <h2 class="text-5xl font-bold text-center text-gray-900 dark:text-white mb-4">
+      Videos Musicales
+    </h2>
+    <p class="text-xl text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+      Disfruta de las mejores interpretaciones y momentos especiales
+    </p>
+    <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      {videos.map(video => (
+        <div class="group relative">
+          <div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-dark rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+          <div class="relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-[1.01]">
+            <div class="aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${video.id}?rel=0`}
+                title={video.title}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {video.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                {video.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a
+        href="https://www.youtube.com/@WilsonBarbosa-Cantante"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-600/20"
+      >
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        Ver Más Videos en YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes tilt {
+    0%, 50%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(0.5deg);
+    }
+    75% {
+      transform: rotate(-0.5deg);
+    }
+  }
+  .animate-tilt {
+    animation: tilt 10s infinite linear;
+  }
+</style>
